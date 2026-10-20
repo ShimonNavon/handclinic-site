@@ -1,0 +1,36 @@
+{
+  "config": {
+    "ingress": [
+      {
+        "hostname": "clinic.navonsimon.com",
+        "service": "http://localhost:8000"
+      },
+      {
+        "hostname": "clinic-test.navonsimon.com",
+        "service": "http://localhost:8001"
+      },
+      {
+        "hostname": "beta.navonsimon.com",
+        "service": "http://localhost:8002"
+      },
+      {
+        "hostname": "handclinic.co.il",
+        "service": "http://ubuntu03:30094"
+      },
+      {
+        "hostname": "www.handclinic.co.il",
+        "service": "http://ubuntu03:30094"
+      },
+      {
+        "hostname": "handclinic-test.navonsimon.com",
+        "service": "http://ubuntu03:30094"
+      },
+      {
+        "service": "http_status:404"
+      }
+    ],
+    "warp-routing": {
+      "enabled": false
+    }
+  }
+}
