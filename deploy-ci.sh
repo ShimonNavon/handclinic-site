@@ -22,7 +22,8 @@ if [ "$ok" != 1 ]; then
     kubectl -n handclinic get pods -o wide >&2
     exit 1
 fi
-curl -fsS --max-time 10 -H "Host: yaffa-david.handclinic.co.il" http://ubuntu03:30094/ | grep -q "yaffa-david.handclinic.co.il"
+curl -fsS --max-time 10 -H "Host: yaffa-david.handclinic.co.il" http://ubuntu03:30094/ -o /tmp/handclinic-ci-page.html
+grep -q "yaffa-david.handclinic.co.il" /tmp/handclinic-ci-page.html
 curl -fsS --max-time 10 -o /dev/null http://ubuntu03:30094/img/hero.jpg
 
 kubectl -n handclinic get pods,svc -o wide
