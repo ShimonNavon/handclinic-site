@@ -12,6 +12,12 @@ kubectl apply -f k8s.yaml
 kubectl -n handclinic rollout restart deployment/web
 kubectl -n handclinic rollout status deployment/web --timeout=180s
 
+for _ in $(seq 1 45); do
+    count=$(kubectl -n handclinic get pods -l app=handclinic-web --no-headers 2>/dev/null | wc -l)
+    if [ "$count" -le 1 ]; then break; fi
+    sleep 2
+done
+
 ok=0
 for _ in $(seq 1 20); do
     if curl -fsS --max-time 5 http://ubuntu03:30094/healthz >/dev/null; then ok=1; break; fi
