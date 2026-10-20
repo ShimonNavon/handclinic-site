@@ -26,6 +26,10 @@
         "service": "http://ubuntu03:30094"
       },
       {
+        "hostname": "dr.handclinic.co.il",
+        "service": "http://ubuntu03:30094"
+      },
+      {
         "service": "http_status:404"
       }
     ],
